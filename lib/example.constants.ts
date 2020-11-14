@@ -1,0 +1,1 @@
+export const EXAMPLE_OPTIONS_TOKEN = Symbol('EXAMPLE_OPTIONS_TOKEN');

@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# IDE
+/.idea
+/.awcache
+.vscode/*
+!.vscode/launcher.json
+!.vscode/settings.json
+
+# misc
+npm-debug.log
+/**/*.DS_Store
+
+# tests
+/coverage
+/.nyc_output
+
+# dist
+dist
+.env
