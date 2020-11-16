@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { ExampleService } from '../../lib';
+import { Oauth2ServerService } from '../../lib';
 import { AppModule } from '../src/app.module';
 import { AppService } from '../src/app.service';
 
 describe('ExampleModule', () => {
     let module: TestingModule;
-    let exampleService: ExampleService;
+    let exampleService: Oauth2ServerService;
 
     describe('register()', () => {
         beforeEach(async () => {
@@ -15,8 +15,8 @@ describe('ExampleModule', () => {
                 imports: [AppModule.withRegister()],
             }).compile();
 
-            exampleService = module.get<ExampleService>(
-                ExampleService,
+            exampleService = module.get<Oauth2ServerService>(
+                Oauth2ServerService,
             );
         });
 
@@ -35,7 +35,7 @@ describe('ExampleModule', () => {
                 }).compile();
 
                 expect(
-                    module.get<ExampleService>(ExampleService),
+                    module.get<Oauth2ServerService>(Oauth2ServerService),
                 ).toBeDefined();
             });
         });
@@ -47,7 +47,7 @@ describe('ExampleModule', () => {
                 }).compile();
 
                 expect(
-                    module.get<ExampleService>(ExampleService),
+                    module.get<Oauth2ServerService>(Oauth2ServerService),
                 ).toBeDefined();
             });
         });
@@ -61,7 +61,7 @@ describe('ExampleModule', () => {
                 }).compile();
 
                 expect(
-                    module.get<ExampleService>(ExampleService),
+                    module.get<Oauth2ServerService>(Oauth2ServerService),
                 ).toBeDefined();
             });
         });

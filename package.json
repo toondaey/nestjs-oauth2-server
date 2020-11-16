@@ -1,7 +1,7 @@
 {
-  "name": "@t00nday/nestjs-module-example",
-  "version": "2.0.3",
-  "description": "Boiler plate for a nestjs module.",
+  "name": "@t00nday/nestjs-oauth2-server",
+  "version": "0.0.0",
+  "description": "A Nestjs wrapper for oauth2-server",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "B'Tunde Aromire",
@@ -17,6 +17,7 @@
     "commit": "commit",
     "format": "prettier --write lib/**/*.ts",
     "build": "rimraf -rf dist && tsc -p tsconfig.json",
+    "build:watch": "rimraf -rf dist && tsc -p tsconfig.json -w",
     "lint": "eslint lib/**/*.ts --fix",
     "prepublish:npm": "npm run build",
     "publish:npm": "npm publish --access public",
@@ -30,7 +31,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "husky": "4.3.0"
+    "oauth2-server": "3.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
@@ -43,6 +44,7 @@
     "@nestjs/testing": "7.5.1",
     "@types/jest": "25.1.1",
     "@types/node": "13.9.4",
+    "@types/oauth2-server": "3.0.12",
     "@types/rimraf": "3.0.0",
     "@typescript-eslint/eslint-plugin": "2.30.0",
     "@typescript-eslint/parser": "2.30.0",
@@ -50,6 +52,7 @@
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.20.2",
+    "husky": "4.3.0",
     "jest": "25.5.2",
     "lint-staged": "10.2.1",
     "prettier": "2.0.5",
