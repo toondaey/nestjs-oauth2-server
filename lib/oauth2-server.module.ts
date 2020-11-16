@@ -6,24 +6,22 @@ import {
 } from '@nestjs/common';
 
 import {
-    ExampleModuleOptions,
-    ExampleOptionsFactory,
-    ExampleModuleAsyncOptions,
-} from './example.interfaces';
-import { ExampleService } from './example.service';
-import { EXAMPLE_OPTIONS_TOKEN } from './example.constants';
+    OAuth2ServerModuleOptions,
+    OAuth2ServerOptionsFactory,
+    Oauth2ServerModuleAsyncOptions,
+} from './oauth2-server.interfaces';
+import { OAUTH2_SERVER_OPTIONS_TOKEN } from './oath2-server.constants';
 
-@Module({
-    providers: [ExampleService],
-    exports: [ExampleService],
-})
-export class ExampleModule {
-    static register(options: ExampleModuleOptions): DynamicModule {
+@Module({})
+export class OAuth2ServerModule {
+    static register(
+        options: OAuth2ServerModuleOptions,
+    ): DynamicModule {
         return {
-            module: ExampleModule,
+            module: OAuth2ServerModule,
             providers: [
                 {
-                    provide: EXAMPLE_OPTIONS_TOKEN,
+                    provide: OAUTH2_SERVER_OPTIONS_TOKEN,
                     useValue: options,
                 },
             ],
@@ -31,24 +29,24 @@ export class ExampleModule {
     }
 
     static registerAsync(
-        options: ExampleModuleAsyncOptions,
+        options: Oauth2ServerModuleAsyncOptions,
     ): DynamicModule {
         return {
-            module: ExampleModule,
+            module: OAuth2ServerModule,
             providers: [...this.createAsyncProviders(options)],
             imports: options.imports || [],
         };
     }
 
     static createAsyncProviders(
-        options: ExampleModuleAsyncOptions,
+        options: Oauth2ServerModuleAsyncOptions,
     ): Provider[] {
         if (options.useFactory || options.useExisting) {
             return [this.createAsyncOptionsProvider(options)];
         }
 
         const useClass = options.useClass as Type<
-            ExampleOptionsFactory
+            OAuth2ServerOptionsFactory
         >;
         return [
             this.createAsyncOptionsProvider(options),
@@ -60,11 +58,11 @@ export class ExampleModule {
     }
 
     static createAsyncOptionsProvider(
-        options: ExampleModuleAsyncOptions,
+        options: Oauth2ServerModuleAsyncOptions,
     ): Provider {
         if (options.useFactory) {
             return {
-                provide: EXAMPLE_OPTIONS_TOKEN,
+                provide: OAUTH2_SERVER_OPTIONS_TOKEN,
                 useFactory: options.useFactory,
                 inject: options.inject || [],
             };
@@ -72,13 +70,13 @@ export class ExampleModule {
 
         const inject = [
             (options.useClass || options.useExisting) as Type<
-                ExampleOptionsFactory
+                OAuth2ServerOptionsFactory
             >,
         ];
 
         return {
-            provide: EXAMPLE_OPTIONS_TOKEN,
-            useFactory: (factory: ExampleOptionsFactory) =>
+            provide: OAUTH2_SERVER_OPTIONS_TOKEN,
+            useFactory: (factory: OAuth2ServerOptionsFactory) =>
                 factory.createPdfOptions(),
             inject,
         };
