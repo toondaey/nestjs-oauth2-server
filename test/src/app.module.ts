@@ -1,48 +1,54 @@
 import { Module, DynamicModule } from '@nestjs/common';
 
-import { ExampleModule } from '../../lib/example.module';
 import { ExistingModule } from './existing.module';
-import { ExampleConfigService } from './example-config.service';
+import { OAuth2ModelService } from './oauth2-model.service';
+import { OAuth2ConfigService } from './oauth2-config.service';
+import { OAuth2ServerModule } from '../../lib/oauth2-server.module';
 
 @Module({
-    exports: [ExampleModule],
+    exports: [OAuth2ServerModule],
 })
 export class AppModule {
-    static withRegister(): DynamicModule {
-        return {
-            module: AppModule,
-            imports: [ExampleModule.register({})],
-        };
-    }
-
-    static withUseFactoryRegisterAsync(): DynamicModule {
+    static withForRoot(): DynamicModule {
         return {
             module: AppModule,
             imports: [
-                ExampleModule.registerAsync({
+                OAuth2ServerModule.forRoot({}, OAuth2ModelService),
+            ],
+        };
+    }
+
+    static withUseFactoryForRootAsync(): DynamicModule {
+        return {
+            module: AppModule,
+            imports: [
+                OAuth2ServerModule.forRootAsync({
+                    model: OAuth2ModelService,
                     useFactory: () => ({}),
                 }),
             ],
         };
     }
 
-    static withUseClassRegisterAsync(): DynamicModule {
+    static withUseClassForRootAsync(): DynamicModule {
         return {
             module: AppModule,
             imports: [
-                ExampleModule.registerAsync({
-                    useClass: ExampleConfigService,
+                OAuth2ServerModule.forRootAsync({
+                    model: OAuth2ModelService,
+                    useClass: OAuth2ConfigService,
                 }),
             ],
         };
     }
 
-    static withUseExistingRegisterAsync(): DynamicModule {
+    static withUseExistingForRootAsync(): DynamicModule {
         return {
             module: AppModule,
             imports: [
-                ExampleModule.registerAsync({
-                    useExisting: ExampleConfigService,
+                OAuth2ServerModule.forRootAsync({
+                    model: OAuth2ModelService,
+                    useExisting: OAuth2ConfigService,
                     imports: [ExistingModule],
                 }),
             ],

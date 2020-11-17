@@ -1,27 +1,23 @@
+import OAuth2Server = require('oauth2-server');
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { Oauth2ServerService } from '../../lib';
 import { AppModule } from '../src/app.module';
-import { AppService } from '../src/app.service';
+import { OAUTH2_SERVER } from '../../lib/oath2-server.constants';
 
 describe('ExampleModule', () => {
     let module: TestingModule;
-    let exampleService: Oauth2ServerService;
 
     describe('register()', () => {
         beforeEach(async () => {
             module = await Test.createTestingModule({
-                providers: [AppService],
-                imports: [AppModule.withRegister()],
+                imports: [AppModule.withForRoot()],
             }).compile();
-
-            exampleService = module.get<Oauth2ServerService>(
-                Oauth2ServerService,
-            );
         });
 
         it('should be defined', () => {
-            expect(exampleService).toBeDefined();
+            expect(
+                module.get<OAuth2Server>(OAUTH2_SERVER),
+            ).toBeDefined();
         });
     });
 
@@ -29,13 +25,11 @@ describe('ExampleModule', () => {
         describe('useFactory()', () => {
             it('should register module', async () => {
                 module = await Test.createTestingModule({
-                    imports: [
-                        AppModule.withUseFactoryRegisterAsync(),
-                    ],
+                    imports: [AppModule.withUseFactoryForRootAsync()],
                 }).compile();
 
                 expect(
-                    module.get<Oauth2ServerService>(Oauth2ServerService),
+                    module.get<OAuth2Server>(OAUTH2_SERVER),
                 ).toBeDefined();
             });
         });
@@ -43,11 +37,11 @@ describe('ExampleModule', () => {
         describe('useClass()', () => {
             it('should register module', async () => {
                 module = await Test.createTestingModule({
-                    imports: [AppModule.withUseClassRegisterAsync()],
+                    imports: [AppModule.withUseClassForRootAsync()],
                 }).compile();
 
                 expect(
-                    module.get<Oauth2ServerService>(Oauth2ServerService),
+                    module.get<OAuth2Server>(OAUTH2_SERVER),
                 ).toBeDefined();
             });
         });
@@ -56,12 +50,12 @@ describe('ExampleModule', () => {
             it('should register module', async () => {
                 module = await Test.createTestingModule({
                     imports: [
-                        AppModule.withUseExistingRegisterAsync(),
+                        AppModule.withUseExistingForRootAsync(),
                     ],
                 }).compile();
 
                 expect(
-                    module.get<Oauth2ServerService>(Oauth2ServerService),
+                    module.get<OAuth2Server>(OAUTH2_SERVER),
                 ).toBeDefined();
             });
         });

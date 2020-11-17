@@ -1,3 +1,5 @@
 export const OAUTH2_SERVER_OPTIONS_TOKEN = Symbol(
     'OAUTH2_SERVER_OPTIONS_TOKEN',
 );
+export const OAUTH2_SERVER = Symbol('OAUTH2_SERVER');
+export const OAUTH2_SERVER_MODEL = Symbol('OAUTH2_SERVER_MODEL');
