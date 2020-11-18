@@ -3,7 +3,7 @@ import { Type, Module, DynamicModule } from '@nestjs/common';
 import {
     OAuth2ServerModuleOptions,
     OAuth2ServerModuleAsyncOptions,
-} from './oauth2-server.interfaces';
+} from './interfaces';
 import { OAuth2ServerCoreModule } from './oauth2-server-core.module';
 
 @Module({})

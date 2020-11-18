@@ -4,9 +4,8 @@ import { AuthorizationCodeModel, Token } from 'oauth2-server';
 @Injectable()
 export class OAuth2ModelService {
     async getAccessToken(accessToken: string) {
-        console.log(this);
         return {
-            accessToken: '',
+            accessToken,
             user: {},
             client: {
                 id: '',
