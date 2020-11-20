@@ -1,2 +1,3 @@
-export * from './oauth2-server-authorization.guard';
-export * from './oauth2-server-authentication.guard';
+export * from './token.guard';
+export * from './authorization.guard';
+export * from './authentication.guard';

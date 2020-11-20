@@ -1,3 +1,4 @@
+import moment = require('moment');
 import { Injectable } from '@nestjs/common';
 import { AuthorizationCodeModel, Token } from 'oauth2-server';
 
@@ -10,8 +11,8 @@ export class OAuth2ModelService {
             client: {
                 id: '',
                 grants: '',
-                accessTokenExpiresAt: new Date(),
             },
+            accessTokenExpiresAt: moment().add(30, 'd').toDate(),
         };
     }
 

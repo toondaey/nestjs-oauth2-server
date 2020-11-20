@@ -32,7 +32,7 @@ describe('e2e', () => {
                     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
                 )
                 .expect((response: request.Response) => {
-                    // console.log(response.body, response.status);
+                    console.log(response.body, response.status);
                 });
         });
     });

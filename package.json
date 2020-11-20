@@ -30,8 +30,7 @@
     "prerelease": "npm run build",
     "release": "dotenv release-it --"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
@@ -55,6 +54,7 @@
     "husky": "4.3.0",
     "jest": "25.5.2",
     "lint-staged": "10.2.1",
+    "moment": "2.29.1",
     "oauth2-server": "3.1.1",
     "prettier": "2.0.5",
     "reflect-metadata": "0.1.13",

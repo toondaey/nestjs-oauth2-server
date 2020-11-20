@@ -10,7 +10,7 @@ import { AuthorizeOptions } from 'oauth2-server';
 import { OAuth2ServerAuthorizationGuard } from '../guards';
 import { OAUTH2_METHOD_OPTIONS_METADATA } from '../oath2-server.constants';
 
-export const OAuth2Authorize = (
+export const OAuth2RenewToken = (
     options: AuthorizeOptions,
 ): ClassDecorator & MethodDecorator =>
     applyDecorators(
@@ -18,7 +18,7 @@ export const OAuth2Authorize = (
         UseGuards(OAuth2ServerAuthorizationGuard),
     );
 
-export const OAuth2Authorization = createParamDecorator(
+export const OAuth2Token = createParamDecorator(
     (_: unknown, context: ExecutionContext) =>
-        context.switchToHttp().getRequest()?.oauth?.authorize,
+        context.switchToHttp().getRequest()?.oauth?.token,
 );
