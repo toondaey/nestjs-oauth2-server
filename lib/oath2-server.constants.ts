@@ -1,3 +1,0 @@
-export const OAUTH2_SERVER_OPTIONS_TOKEN = Symbol(
-    'OAUTH2_SERVER_OPTIONS_TOKEN',
-);

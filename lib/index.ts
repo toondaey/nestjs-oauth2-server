@@ -1,3 +1,3 @@
+export * from './decorators';
 export * from './oauth2-server.module';
-export * from './oauth2-server.service';
-export * from './oauth2-server.interfaces';
+export * from './interfaces/oauth2-server.interfaces';
