@@ -2,17 +2,16 @@ import { Type } from '@nestjs/common';
 import { ServerOptions } from 'oauth2-server';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 
-export type OAuth2ServerModuleOptions = Omit<ServerOptions, 'model'>;
+export type IOAuth2ServerModuleOptions = Omit<ServerOptions, 'model'>;
 
-export interface OAuth2ServerOptionsFactory {
-    createOAuth2ServerOptions(): OAuth2ServerModuleOptions;
+export interface IOAuth2ServerOptionsFactory {
+    createOAuth2ServerOptions(): IOAuth2ServerModuleOptions;
 }
 
-export interface OAuth2ServerModuleAsyncOptions
+export interface IOAuth2ServerModuleAsyncOptions
     extends Pick<ModuleMetadata, 'imports'> {
-    model: Type<any>;
-    useClass?: Type<OAuth2ServerOptionsFactory>;
-    useExisting?: Type<OAuth2ServerOptionsFactory>;
-    useFactory?: (...args: any[]) => OAuth2ServerModuleOptions;
+    useClass?: Type<IOAuth2ServerOptionsFactory>;
+    useExisting?: Type<IOAuth2ServerOptionsFactory>;
+    useFactory?: (...args: any[]) => IOAuth2ServerModuleOptions;
     inject?: any[];
 }

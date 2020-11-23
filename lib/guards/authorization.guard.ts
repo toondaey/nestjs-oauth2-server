@@ -8,6 +8,7 @@ import { from, Observable } from 'rxjs';
 import { Injectable, CanActivate } from '@nestjs/common';
 
 import { BaseGuard } from './base.guard';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class OAuth2ServerAuthorizationGuard extends BaseGuard

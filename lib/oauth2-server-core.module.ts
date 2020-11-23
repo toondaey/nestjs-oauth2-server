@@ -9,27 +9,30 @@ import { ServerOptions } from 'oauth2-server';
 import OAuth2Server = require('oauth2-server');
 
 import {
+    OAuth2ServerTokenGuard,
     OAuth2ServerAuthorizationGuard,
     OAuth2ServerAuthenticationGuard,
 } from './guards';
 import {
     OAUTH2_SERVER,
-    OAUTH2_SERVER_MODEL,
+    OAUTH2_SERVER_MODEL_PROVIDER,
     OAUTH2_SERVER_OPTIONS_TOKEN,
-} from './oath2-server.constants';
+} from './oauth2-server.constants';
 import {
-    OAuth2ServerModuleOptions,
-    OAuth2ServerOptionsFactory,
-    OAuth2ServerModuleAsyncOptions,
+    IOAuth2ServerModuleOptions,
+    IOAuth2ServerOptionsFactory,
+    IOAuth2ServerModuleAsyncOptions,
 } from './interfaces/oauth2-server.interfaces';
+import { ModelProviderModule } from './model-provider.module';
 
 @Global()
 @Module({
+    imports: [ModelProviderModule],
     providers: [
         {
             provide: OAUTH2_SERVER,
             useFactory: (
-                options: OAuth2ServerModuleOptions,
+                options: IOAuth2ServerModuleOptions,
                 model: ServerOptions['model'],
             ): OAuth2Server =>
                 new OAuth2Server(
@@ -37,9 +40,10 @@ import {
                 ),
             inject: [
                 OAUTH2_SERVER_OPTIONS_TOKEN,
-                OAUTH2_SERVER_MODEL,
+                OAUTH2_SERVER_MODEL_PROVIDER,
             ],
         },
+        OAuth2ServerTokenGuard,
         OAuth2ServerAuthorizationGuard,
         OAuth2ServerAuthenticationGuard,
     ],
@@ -47,8 +51,7 @@ import {
 })
 export class OAuth2ServerCoreModule {
     static forRoot(
-        options: OAuth2ServerModuleOptions,
-        model: Type<any>,
+        options: IOAuth2ServerModuleOptions,
     ): DynamicModule {
         return {
             module: OAuth2ServerCoreModule,
@@ -57,53 +60,36 @@ export class OAuth2ServerCoreModule {
                     provide: OAUTH2_SERVER_OPTIONS_TOKEN,
                     useValue: options,
                 },
-                {
-                    provide: OAUTH2_SERVER_MODEL,
-                    useClass: model,
-                },
             ],
         };
     }
 
     static forRootAsync(
-        options: OAuth2ServerModuleAsyncOptions,
+        options: IOAuth2ServerModuleAsyncOptions,
     ): DynamicModule {
-        const { model, ...otherOptions } = options;
-
         return {
             module: OAuth2ServerCoreModule,
-            providers: [
-                ...this.createAsyncProviders(otherOptions),
-                {
-                    provide: OAUTH2_SERVER_MODEL,
-                    useClass: model,
-                },
-            ],
+            providers: [...this.createAsyncProviders(options)],
             imports: options.imports || [],
         };
     }
 
-    static createAsyncProviders(
-        options: Omit<OAuth2ServerModuleAsyncOptions, 'model'>,
+    private static createAsyncProviders(
+        options: Omit<IOAuth2ServerModuleAsyncOptions, 'model'>,
     ): Provider[] {
         if (options.useFactory || options.useExisting) {
             return [this.createAsyncOptionsProvider(options)];
         }
 
         const useClass = options.useClass as Type<
-            OAuth2ServerOptionsFactory
+            IOAuth2ServerOptionsFactory
         >;
-        return [
-            this.createAsyncOptionsProvider(options),
-            {
-                provide: useClass,
-                useClass,
-            },
-        ];
+
+        return [this.createAsyncOptionsProvider(options), useClass];
     }
 
-    static createAsyncOptionsProvider(
-        options: Omit<OAuth2ServerModuleAsyncOptions, 'model'>,
+    private static createAsyncOptionsProvider(
+        options: Omit<IOAuth2ServerModuleAsyncOptions, 'model'>,
     ): Provider {
         if (options.useFactory) {
             return {
@@ -115,13 +101,13 @@ export class OAuth2ServerCoreModule {
 
         const inject = [
             (options.useClass || options.useExisting) as Type<
-                OAuth2ServerOptionsFactory
+                IOAuth2ServerOptionsFactory
             >,
         ];
 
         return {
             provide: OAUTH2_SERVER_OPTIONS_TOKEN,
-            useFactory: (factory: OAuth2ServerOptionsFactory) =>
+            useFactory: (factory: IOAuth2ServerOptionsFactory) =>
                 factory.createOAuth2ServerOptions(),
             inject,
         };

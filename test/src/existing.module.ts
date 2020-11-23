@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 
-import { OAuth2ConfigService } from './oauth2-config.service';
+import { TestConfigService } from './test-config.service';
 
 @Module({
-    providers: [OAuth2ConfigService],
-    exports: [OAuth2ConfigService],
+    providers: [TestConfigService],
+    exports: [TestConfigService],
 })
 export class ExistingModule {}

@@ -1,29 +1,31 @@
 import { Module, DynamicModule } from '@nestjs/common';
 
 import { ExistingModule } from './existing.module';
-import { OAuth2ModelService } from './oauth2-model.service';
-import { OAuth2ConfigService } from './oauth2-config.service';
+import { TestModelService } from './test-model.service';
+import { TestConfigService } from './test-config.service';
 import { OAuth2ServerModule } from '../../lib/oauth2-server.module';
 
 @Module({
     exports: [OAuth2ServerModule],
 })
-export class AppModule {
-    static withForRoot(): DynamicModule {
+export class TestModule {
+    static withForRoot(): // responses?: ITestExpectedResponses,
+    DynamicModule {
         return {
-            module: AppModule,
+            module: TestModule,
             imports: [
-                OAuth2ServerModule.forRoot({}, OAuth2ModelService),
+                OAuth2ServerModule.forRoot({
+                    allowEmptyState: true,
+                }),
             ],
         };
     }
 
     static withUseFactoryForRootAsync(): DynamicModule {
         return {
-            module: AppModule,
+            module: TestModule,
             imports: [
                 OAuth2ServerModule.forRootAsync({
-                    model: OAuth2ModelService,
                     useFactory: () => ({}),
                 }),
             ],
@@ -32,11 +34,10 @@ export class AppModule {
 
     static withUseClassForRootAsync(): DynamicModule {
         return {
-            module: AppModule,
+            module: TestModule,
             imports: [
                 OAuth2ServerModule.forRootAsync({
-                    model: OAuth2ModelService,
-                    useClass: OAuth2ConfigService,
+                    useClass: TestConfigService,
                 }),
             ],
         };
@@ -44,11 +45,10 @@ export class AppModule {
 
     static withUseExistingForRootAsync(): DynamicModule {
         return {
-            module: AppModule,
+            module: TestModule,
             imports: [
                 OAuth2ServerModule.forRootAsync({
-                    model: OAuth2ModelService,
-                    useExisting: OAuth2ConfigService,
+                    useExisting: TestConfigService,
                     imports: [ExistingModule],
                 }),
             ],
