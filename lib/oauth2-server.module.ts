@@ -6,7 +6,9 @@ import {
 } from './interfaces';
 import { OAuth2ServerCoreModule } from './oauth2-server-core.module';
 
-@Module({})
+@Module({
+    imports: [OAuth2ServerCoreModule],
+})
 export class OAuth2ServerModule {
     static forRoot(
         options: IOAuth2ServerModuleOptions,

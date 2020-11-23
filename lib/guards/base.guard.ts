@@ -4,31 +4,15 @@ import {
     TokenOptions,
     AuthorizeOptions,
     AuthorizationCode,
-    InvalidScopeError,
-    AccessDeniedError,
-    InvalidTokenError,
-    InvalidGrantError,
-    InvalidClientError,
-    InvalidRequestError,
     AuthenticateOptions,
-    InsufficientScopeError,
-    UnauthorizedClientError,
-    UnauthorizedRequestError,
     Request as OAuth2Request,
-    UnsupportedGrantTypeError,
     Response as OAuth2Response,
-    UnsupportedResponseTypeError,
 } from 'oauth2-server';
 import {
     Inject,
     Injectable,
     HttpException,
     ExecutionContext,
-    ForbiddenException,
-    BadRequestException,
-    UnauthorizedException,
-    MethodNotAllowedException,
-    InternalServerErrorException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import OAuth2Server = require('oauth2-server');
@@ -74,11 +58,11 @@ export abstract class BaseGuard {
         );
     }
 
-    protected getRequest<T>(context: ExecutionContext): T {
+    getRequest<T>(context: ExecutionContext): T {
         return context.switchToHttp().getRequest<T>();
     }
 
-    protected getResponse<T>(context: ExecutionContext): T {
+    getResponse<T>(context: ExecutionContext): T {
         return context.switchToHttp().getResponse<T>();
     }
 

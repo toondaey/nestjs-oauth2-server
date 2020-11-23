@@ -1,16 +1,12 @@
 import { Module, DynamicModule } from '@nestjs/common';
 
 import { ExistingModule } from './existing.module';
-import { TestModelService } from './test-model.service';
 import { TestConfigService } from './test-config.service';
 import { OAuth2ServerModule } from '../../lib/oauth2-server.module';
 
-@Module({
-    exports: [OAuth2ServerModule],
-})
+@Module({})
 export class TestModule {
-    static withForRoot(): // responses?: ITestExpectedResponses,
-    DynamicModule {
+    static withForRoot(): DynamicModule {
         return {
             module: TestModule,
             imports: [

@@ -30,6 +30,10 @@ import { ModelProviderModule } from './model-provider.module';
     imports: [ModelProviderModule],
     providers: [
         {
+            provide: OAUTH2_SERVER_OPTIONS_TOKEN,
+            useValue: {},
+        },
+        {
             provide: OAUTH2_SERVER,
             useFactory: (
                 options: IOAuth2ServerModuleOptions,

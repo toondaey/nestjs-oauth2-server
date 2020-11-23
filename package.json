@@ -15,7 +15,7 @@
   },
   "scripts": {
     "commit": "commit",
-    "format": "prettier --write lib/**/*.ts",
+    "format": "prettier --write lib/**/*.ts test/**/*.ts",
     "build": "rimraf -rf dist && tsc -p tsconfig.json",
     "build:watch": "rimraf -rf dist && tsc -p tsconfig.json -w",
     "lint": "eslint lib/**/*.ts --fix",
