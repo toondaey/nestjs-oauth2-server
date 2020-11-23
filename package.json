@@ -1,13 +1,17 @@
 {
   "name": "@t00nday/nestjs-oauth2-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Nestjs wrapper for oauth2-server",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "B'Tunde Aromire",
   "keywords": [
-    "nestjs example module",
-    "@nestjs/example-module"
+    "nestjs oauth2 server",
+    "nestjs oauth2",
+    "@nestjs/oauth2-server",
+    "nest oauth2 server",
+    "nestjs",
+    "nest"
   ],
   "directories": {
     "lib": "lib",
