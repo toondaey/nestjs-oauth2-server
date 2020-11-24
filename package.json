@@ -62,7 +62,7 @@
     "prettier": "2.2.0",
     "reflect-metadata": "0.1.13",
     "release-it": "13.5.7",
-    "renovate": "23.84.13",
+    "renovate": "23.86.0",
     "rimraf": "3.0.2",
     "rxjs": "6.6.3",
     "supertest": "6.0.1",
