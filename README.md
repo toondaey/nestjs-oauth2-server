@@ -2,15 +2,16 @@
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-  <a href="javascript:void(0)" target="blank"><img src="https://github.com/toondaey/nestjs-oauth2-server/blob/master/oauth2.png?raw=true" width="120" alt="OAuth2 Logo" /></a>
+  <img src="https://github.com/toondaey/nestjs-oauth2-server/blob/master/oauth2.png?raw=true" width="120" alt="OAuth2 Logo" />
 </p>
 
 <p align='center'>
     <a href="https://www.npmjs.com/package/@t00nday/nestjs-oauth2-server" target='_blank'><img alt="npm" src="https://img.shields.io/npm/dm/@t00nday/nestjs-oauth2-server" alt="NPM Downloads"></a>
     <a href="https://coveralls.io/github/toondaey/nestjs-oauth2-server" target="_blank" rel="noopener noreferrer"><img alt="Coveralls github" src="https://img.shields.io/coveralls/github/toondaey/nestjs-oauth2-server"></a>
-    <a href="https://npmjs.com/@t00nday/nestjs-oauth2-server" target="_blank" rel="noopener noreferrer"><img alt="npm version" src="https://img.shields.io/npm/v/@t00nday/nestjs-oauth2-server"></a>
+    <a href="https://npmjs.com/@t00nday/nestjs-oauth2-server" target="_blank" rel="noopener noreferrer"><img alt="npm version" src="https://img.shields.io/npm/v/@t00nday/nestjs-oauth2-server?label=NPM&logo=NPM"></a>
     <a href="https://npmjs.com/@t00nday/nestjs-oauth2-server" target="_blank" rel="noopener noreferrer"><img alt="LICENCE" src="https://img.shields.io/npm/l/@t00nday/nestjs-oauth2-server"></a>
     <a href="https://circleci.com/gh/toondaey/nestjs-oauth2-server" target="_blank" rel="noopener noreferrer"><img alt="CircleCI build" src="https://img.shields.io/circleci/build/gh/toondaey/nestjs-oauth2-server/master"></a>
+    <a href="https://www.npmjs.com/package/@t00nday/nestjs-oauth2-server" target="_blank" rel="noopener noreferrer"><img alt="synk vulnerabilities" src="https://img.shields.io/snyk/vulnerabilities/npm/@t00nday/nestjs-oauth2-server"></a>
 </p>
 
 <p>
