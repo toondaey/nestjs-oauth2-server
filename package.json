@@ -6,8 +6,12 @@
   "types": "index.d.ts",
   "author": "B'Tunde Aromire",
   "keywords": [
-    "nestjs example module",
-    "@nestjs/example-module"
+    "nestjs oauth2 server",
+    "nestjs oauth2",
+    "@nestjs/oauth2-server",
+    "nest oauth2 server",
+    "nestjs",
+    "nest"
   ],
   "directories": {
     "lib": "lib",
@@ -66,11 +70,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toondaey/nestjs-module-boilerplate.git"
+    "url": "git+https://github.com/toondaey/nestjs-oauth2-server.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/toondaey/nestjs-module-boilerplate/issues"
+    "url": "https://github.com/toondaey/nestjs-oauth2-server/issues"
   },
   "husky": {
     "hooks": {
@@ -89,7 +93,7 @@
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0"
   },
-  "homepage": "https://github.com/toondaey/nestjs-module-boilerplate#readme",
+  "homepage": "https://github.com/toondaey/nestjs-oauth2-server#readme",
   "publishConfig": {
     "access": "public"
   }
