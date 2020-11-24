@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-  <a href="" target="blank"><img src="httpshttps://github.com/toondaey/nestjs-oauth2-server/blob/master/oauth2.png?raw=true" width="120" alt="OAuth2 Logo" /></a>
+  <a href="javascript:void(0)" target="blank"><img src="https://github.com/toondaey/nestjs-oauth2-server/blob/master/oauth2.png?raw=true" width="120" alt="OAuth2 Logo" /></a>
 </p>
 
 <p align='center'>
