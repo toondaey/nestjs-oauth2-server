@@ -1,7 +1,7 @@
 import {
-    AuthorizationCode,
-    RefreshToken,
     Token,
+    RefreshToken,
+    AuthorizationCode,
 } from 'oauth2-server';
 
 export interface ITestExpectedResponses {

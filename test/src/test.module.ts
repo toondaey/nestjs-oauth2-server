@@ -1,6 +1,7 @@
 import { Module, DynamicModule } from '@nestjs/common';
 
 import { ExistingModule } from './existing.module';
+import { IOAuth2ServerModuleOptions } from '../../lib';
 import { TestConfigService } from './test-config.service';
 import { OAuth2ServerModule } from '../../lib/oauth2-server.module';
 
@@ -22,7 +23,7 @@ export class TestModule {
             module: TestModule,
             imports: [
                 OAuth2ServerModule.forRootAsync({
-                    useFactory: () => ({}),
+                    useFactory: (): IOAuth2ServerModuleOptions => ({}),
                 }),
             ],
         };
