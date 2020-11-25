@@ -14,15 +14,15 @@ import {
     OAuth2ServerAuthenticationGuard,
 } from './guards';
 import {
+    IOAuth2ServerModuleOptions,
+    IOAuth2ServerOptionsFactory,
+    IOAuth2ServerModuleAsyncOptions,
+} from './interfaces';
+import {
     OAUTH2_SERVER,
     OAUTH2_SERVER_MODEL_PROVIDER,
     OAUTH2_SERVER_OPTIONS_TOKEN,
 } from './oauth2-server.constants';
-import {
-    IOAuth2ServerModuleOptions,
-    IOAuth2ServerOptionsFactory,
-    IOAuth2ServerModuleAsyncOptions,
-} from './interfaces/oauth2-server.interfaces';
 import { ModelProviderModule } from './model-provider.module';
 
 @Global()
@@ -85,9 +85,7 @@ export class OAuth2ServerCoreModule {
             return [this.createAsyncOptionsProvider(options)];
         }
 
-        const useClass = options.useClass as Type<
-            IOAuth2ServerOptionsFactory
-        >;
+        const useClass = options.useClass as Type<IOAuth2ServerOptionsFactory>;
 
         return [this.createAsyncOptionsProvider(options), useClass];
     }
@@ -104,9 +102,8 @@ export class OAuth2ServerCoreModule {
         }
 
         const inject = [
-            (options.useClass || options.useExisting) as Type<
-                IOAuth2ServerOptionsFactory
-            >,
+            (options.useClass ||
+                options.useExisting) as Type<IOAuth2ServerOptionsFactory>,
         ];
 
         return {
