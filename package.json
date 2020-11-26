@@ -61,7 +61,7 @@
     "oauth2-server": "3.1.1",
     "prettier": "2.2.0",
     "reflect-metadata": "0.1.13",
-    "release-it": "14.2.1",
+    "release-it": "14.2.2",
     "renovate": "23.88.2",
     "rimraf": "3.0.2",
     "rxjs": "6.6.3",
