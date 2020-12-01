@@ -43,7 +43,7 @@
     "@nestjs/core": "7.5.5",
     "@nestjs/platform-express": "7.5.5",
     "@nestjs/testing": "7.5.5",
-    "@types/jest": "26.0.15",
+    "@types/jest": "26.0.16",
     "@types/node": "13.9.4",
     "@types/oauth2-server": "3.0.12",
     "@types/rimraf": "3.0.0",
