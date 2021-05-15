@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import {
     IOAuth2ServerModuleOptions,
     IOAuth2ServerOptionsFactory,
-} from '../../lib/interfaces/oauth2-server.interfaces';
+} from '../../lib';
 
 @Injectable()
 export class TestConfigService

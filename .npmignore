@@ -10,6 +10,7 @@ tsconfig.json
 # github
 .github
 CONTRIBUTING.md
+CHANGELOG.md
 renovate.json
 
 # ci
