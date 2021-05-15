@@ -10,7 +10,8 @@ import { Injectable, CanActivate } from '@nestjs/common';
 import { BaseGuard } from './base.guard';
 
 @Injectable()
-export class OAuth2ServerAuthorizationGuard extends BaseGuard
+export class OAuth2ServerAuthorizationGuard
+    extends BaseGuard
     implements CanActivate {
     protected action(
         request: OAuth2Request,

@@ -43,7 +43,7 @@ or
 
 ## Configuration
 
-1. Include the module as a dependency in the module where pdf will be generated:
+1. Include the module as a dependency in the module, preferably as a dependency at the base module so it can be included globally across the application:
 
 `app.module.ts`
 
