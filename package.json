@@ -28,8 +28,8 @@
     "prepublish:next": "npm run build",
     "publish:next": "npm publish --access public --tag next",
     "test": "npm run test:integration",
-    "test:integration": "jest --config ./test/jest-e2e.config.json --runInBand",
-    "test:cov": "jest --config ./test/jest-e2e.config.json --runInBand --coverage",
+    "test:integration": "jest --config ./tests/jest-e2e.config.json --runInBand",
+    "test:cov": "jest --config ./tests/jest-e2e.config.json --runInBand --coverage",
     "prerelease": "npm run build",
     "release": "dotenv release-it --"
   },
@@ -92,7 +92,7 @@
   "peerDependencies": {
     "@nestjs/common": "^6.10.0 || ^7.0.0",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.0.0"
+    "rxjs": "^6.0.0 || ^7.0.0"
   },
   "homepage": "https://github.com/toondaey/nestjs-oauth2-server#readme",
   "publishConfig": {
