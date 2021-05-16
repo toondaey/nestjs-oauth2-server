@@ -44,7 +44,7 @@
     "@nestjs/platform-express": "7.6.15",
     "@nestjs/testing": "7.6.15",
     "@types/jest": "26.0.19",
-    "@types/node": "13.9.4",
+    "@types/node": "13.13.52",
     "@types/oauth2-server": "3.0.12",
     "@types/rimraf": "3.0.0",
     "@types/supertest": "2.0.11",
