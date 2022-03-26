@@ -39,10 +39,10 @@
     "@commitlint/config-conventional": "11.0.0",
     "@commitlint/prompt-cli": "11.0.0",
     "@compodoc/compodoc": "1.1.12",
-    "@nestjs/common": "7.6.15",
-    "@nestjs/core": "7.6.15",
-    "@nestjs/platform-express": "7.6.15",
-    "@nestjs/testing": "7.6.15",
+    "@nestjs/common": "8.4.3",
+    "@nestjs/core": "8.4.3",
+    "@nestjs/platform-express": "8.4.3",
+    "@nestjs/testing": "8.4.3",
     "@types/jest": "26.0.23",
     "@types/node": "13.13.52",
     "@types/oauth2-server": "3.0.12",
@@ -90,7 +90,7 @@
     ]
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.10.0 || ^7.0.0",
+    "@nestjs/common": "^6.10.0 || ^7.0.0 || ^8.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0"
   },
