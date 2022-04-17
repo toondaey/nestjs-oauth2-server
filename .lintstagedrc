@@ -1,0 +1,6 @@
+{
+    "lib/**/*.ts": [
+        "prettier --write",
+        "eslint --fix . --ext .js,.jsx,.ts,.tsx"
+    ]
+}

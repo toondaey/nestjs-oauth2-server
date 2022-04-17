@@ -1,0 +1,8 @@
+tests/**
+node_modules
+coverage
+husky
+dist
+index.ts
+index.js
+index.d.ts

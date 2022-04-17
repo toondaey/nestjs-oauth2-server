@@ -8,11 +8,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es6",
-    "sourceMap": false,
+    "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./lib",
     "skipLibCheck": true
   },
   "include": ["lib/**/*.ts"],
-  "exclude": ["test"]
+  "exclude": ["tests"]
 }

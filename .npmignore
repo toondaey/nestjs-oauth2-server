@@ -5,21 +5,31 @@ index.ts
 package-lock.json
 tslint.json
 tsconfig.json
+tsconfig.build.json
 .prettierrc
-
-# github
-.github
-CONTRIBUTING.md
-CHANGELOG.md
-renovate.json
-
-# ci
-.circleci
-coverage
+.prettierignore
+.dev-dependencies
+.dependencies
+.eslintignore
+.dccache
 .env
 .vscode
 .editorconfig
 .release-it.json
 .eslintrc
-commitlint.config.js
+.commitlintrc
 pdf-icon.svg
+jest.config.json
+
+# github
+.github
+CONTRIBUTING.md
+README.md
+renovate.json
+.husky
+.lintstagedrc
+LICENCE
+
+# ci
+.circleci
+coverage

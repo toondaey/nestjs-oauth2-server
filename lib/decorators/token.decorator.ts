@@ -19,6 +19,6 @@ export const OAuth2RenewToken = (
     );
 
 export const OAuth2Token = createParamDecorator(
-    (_: unknown, context: ExecutionContext) =>
+    (_: unknown, context: ExecutionContext | any) =>
         context.switchToHttp().getRequest().oauth?.token,
 );

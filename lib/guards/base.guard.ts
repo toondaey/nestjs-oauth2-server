@@ -58,19 +58,19 @@ export abstract class BaseGuard {
         );
     }
 
-    getRequest<T>(context: ExecutionContext): T {
+    protected getRequest<T>(context: ExecutionContext): T {
         return context.switchToHttp().getRequest<T>();
     }
 
-    getResponse<T>(context: ExecutionContext): T {
+    protected getResponse<T>(context: ExecutionContext): T {
         return context.switchToHttp().getResponse<T>();
     }
 
-    protected getOptions<
+    private getOptions<
         T extends
             | TokenOptions
             | AuthorizeOptions
-            | AuthenticateOptions
+            | AuthenticateOptions,
     >(context: ExecutionContext): T {
         return this.reflector.get<T, symbol>(
             OAUTH2_METHOD_OPTIONS_METADATA,
@@ -91,7 +91,7 @@ export abstract class BaseGuard {
     ): Observable<Token | AuthorizationCode>;
 
     protected abstract includeOauthInRequest<
-        T extends Record<string, any>
+        T extends Record<string, any>,
     >(
         request: T,
         tokenOrAuthorizationCode: Token | AuthorizationCode,

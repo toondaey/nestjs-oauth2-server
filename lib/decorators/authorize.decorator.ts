@@ -19,6 +19,6 @@ export const OAuth2Authorize = (
     );
 
 export const OAuth2Authorization = createParamDecorator(
-    (_: unknown, context: ExecutionContext) =>
+    (_: unknown, context: ExecutionContext | any) =>
         context.switchToHttp().getRequest().oauth?.authorization,
 );

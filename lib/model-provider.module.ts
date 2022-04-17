@@ -3,7 +3,7 @@ import {
     DiscoveryModule,
     DiscoveryService,
 } from '@nestjs/core';
-import { defer, of, throwError } from 'rxjs';
+import { defer, firstValueFrom, of, throwError } from 'rxjs';
 import {
     InternalServerErrorException,
     Module,
@@ -60,19 +60,20 @@ const NO_MODEL_EXCEPTION = 'OAuth2Model not provided';
                     return service?.instance;
                 };
 
-                return defer(() => getProvider())
-                    .pipe(
+                return firstValueFrom(
+                    defer(() => getProvider()).pipe(
                         mergeMap(instance =>
                             instance
                                 ? of(instance)
                                 : throwError(
-                                      new InternalServerErrorException(
-                                          NO_MODEL_EXCEPTION,
-                                      ),
+                                      () =>
+                                          new InternalServerErrorException(
+                                              NO_MODEL_EXCEPTION,
+                                          ),
                                   ),
                         ),
-                    )
-                    .toPromise();
+                    ),
+                );
             },
             inject: [DiscoveryService, Reflector],
         },
