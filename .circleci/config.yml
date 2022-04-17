@@ -28,6 +28,10 @@ aliases:
       key: dependency-cache-{{ checksum "package.json" }}
       paths:
         - ./node_modules
+  - &remove-latest-nestjs
+    run:
+      name: Remove latest nestjs
+      command: npm remove @nestjs/common @nestjs/core @nestjs/platform-express @nestjs/testing rxjs
 
 jobs:
   integration_tests_node_12:
@@ -69,6 +73,41 @@ jobs:
       - *restore-cache
       - *install-deps
       - *save-cache
+      - *run-lint
+      - *run-integration
+
+  ### Testing support for older versions of nestjs/rxjs
+  integration_tests_nestjs_7_0_0:
+    resource_class: small
+    working_directory: ~/nest
+    docker:
+      - image: cimg/node:16.14
+    steps:
+      - checkout
+      - *update-npm
+      - *restore-cache
+      - *install-deps
+      - *remove-latest-nestjs
+      - run:
+          name: Install nestjs 7.0.0 and deps
+          command: npm install -D @nestjs/common@^7.0.0 @nestjs/core@^7.0.0 @nestjs/platform-express@^7.0.0 @nestjs/testing@^7.0.0 rxjs@^6.0.0
+      - *run-lint
+      - *run-integration
+
+  integration_tests_nestjs_6_0_0:
+    resource_class: small
+    working_directory: ~/nest
+    docker:
+      - image: cimg/node:16.14
+    steps:
+      - checkout
+      - *update-npm
+      - *restore-cache
+      - *install-deps
+      - *remove-latest-nestjs
+      - run:
+          name: Install nestjs 6.0.0 and deps
+          command: npm install -D @nestjs/common@^6.0.0 @nestjs/core@^6.0.0 @nestjs/platform-express@^6.0.0 @nestjs/testing@^6.0.0 rxjs@^6.0.0
       - *run-lint
       - *run-integration
 
