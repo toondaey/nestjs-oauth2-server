@@ -1,6 +1,6 @@
 {
   "name": "@t00nday/nestjs-oauth2-server",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "A Nestjs wrapper for oauth2-server",
   "main": "index.js",
   "type": "module",
