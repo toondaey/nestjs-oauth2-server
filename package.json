@@ -86,8 +86,10 @@
     }
   },
   "peerDependencies": {
+    "@nestjs/common": "^8.0.0",
     "oauth2-server": "3.1.1",
-    "reflect-metadata": "^0.1.12"
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^7.0.0"
   },
   "homepage": "https://github.com/toondaey/nestjs-oauth2-server#readme",
   "publishConfig": {

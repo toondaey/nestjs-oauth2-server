@@ -19,10 +19,6 @@ export const OAuth2Authorize = (
     );
 
 export const OAuth2Authorization = createParamDecorator(
-    (_: unknown, contextOrRequest: ExecutionContext | any) =>
-        typeof contextOrRequest.switchToHttp === 'function'
-            ? (contextOrRequest as ExecutionContext)
-                  .switchToHttp()
-                  .getRequest().oauth?.authorization
-            : contextOrRequest.oauth?.authorization,
+    (_: unknown, context: ExecutionContext | any) =>
+        context.switchToHttp().getRequest().oauth?.authorization,
 );
