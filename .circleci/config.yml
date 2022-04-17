@@ -134,6 +134,8 @@ workflows:
       - integration_tests_node_12
       - integration_tests_node_14
       - integration_tests_node_16
+      - integration_tests_nestjs_7_0_0
+      - integration_tests_nestjs_6_0_0
   coverage:
     jobs:
       - coverage
