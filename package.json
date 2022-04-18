@@ -59,7 +59,7 @@
     "husky": "7.0.4",
     "jest": "27.5.1",
     "lint-staged": "12.3.8",
-    "moment": "2.29.2",
+    "moment": "2.29.3",
     "oauth2-server": "3.1.1",
     "prettier": "2.6.2",
     "reflect-metadata": "0.1.13",
