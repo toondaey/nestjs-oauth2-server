@@ -38,7 +38,7 @@ jobs:
     resource_class: small
     working_directory: ~/nest
     docker:
-      - image: cimg/node:12.22.0
+      - image: cimg/node:12.22.12
     steps:
       - checkout
       - *update-npm
