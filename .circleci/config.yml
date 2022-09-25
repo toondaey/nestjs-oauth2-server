@@ -38,7 +38,7 @@ jobs:
     resource_class: small
     working_directory: ~/nest
     docker:
-      - image: cimg/node:12.22.0
+      - image: cimg/node:18.9.1
     steps:
       - checkout
       - *update-npm
@@ -52,7 +52,7 @@ jobs:
     resource_class: small
     working_directory: ~/nest
     docker:
-      - image: cimg/node:14.19
+      - image: cimg/node:18.9
     steps:
       - checkout
       - *update-npm
@@ -66,7 +66,7 @@ jobs:
     resource_class: small
     working_directory: ~/nest
     docker:
-      - image: cimg/node:16.14
+      - image: cimg/node:18.9
     steps:
       - checkout
       - *update-npm
@@ -79,7 +79,7 @@ jobs:
   coverage:
     working_directory: ~/nest
     docker:
-      - image: cimg/node:16.14
+      - image: cimg/node:18.9
     steps:
       - checkout
       - *update-npm
