@@ -49,7 +49,7 @@
     "@types/node": "17.0.24",
     "@types/oauth2-server": "3.0.13",
     "@types/rimraf": "3.0.2",
-    "@types/supertest": "2.0.12",
+    "@types/supertest": "6.0.2",
     "@typescript-eslint/eslint-plugin": "5.19.0",
     "@typescript-eslint/parser": "5.19.0",
     "dotenv-cli": "5.1.0",
@@ -67,7 +67,7 @@
     "renovate": "32.25.0",
     "rimraf": "3.0.2",
     "rxjs": "7.5.5",
-    "supertest": "6.2.2",
+    "supertest": "6.3.3",
     "ts-jest": "27.1.4",
     "typescript": "4.6.3"
   },
